@@ -211,10 +211,10 @@ void RocksdbDB::Init() {
     }
   }
   if (cf_descs.empty()) {
-    printf("rocksdb::DB::Open1\n");
+    // printf("rocksdb::DB::Open1\n");
     s = rocksdb::DB::Open(opt, db_path, &db_);
   } else {
-    printf("rocksdb::DB::Open2\n");
+    // printf("rocksdb::DB::Open2\n");
     s = rocksdb::DB::Open(opt, db_path, cf_descs, &cf_handles, &db_);
   }
   if (!s.ok()) {
@@ -235,7 +235,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
   std::string env_uri = props.GetProperty(PROP_ENV_URI, PROP_ENV_URI_DEFAULT);
   std::string fs_uri = props.GetProperty(PROP_FS_URI, PROP_FS_URI_DEFAULT);
   // fs_uri = "zenfs://dev:nvme0n1";
-  printf("fs uri %s\n",fs_uri.c_str());
+  // printf("fs uri %s\n",fs_uri.c_str());
   rocksdb::Env* env =  rocksdb::Env::Default();;
   if (!env_uri.empty() || !fs_uri.empty()) {
     rocksdb::Status s = rocksdb::Env::CreateFromUri(rocksdb::ConfigOptions(),
@@ -243,7 +243,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
     if (!s.ok()) {
       throw utils::Exception(std::string("RocksDB CreateFromUri: ") + s.ToString());
     }
-    printf("env is nullptr ? %s %p\n",env ? "no" : "yes",env);
+    // printf("env is nullptr ? %s %p\n",env ? "no" : "yes",env);
     opt->env = env;
   }else{
     printf("why ?? 2\n");
@@ -256,7 +256,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
     config_options.input_strings_escaped = true;
     config_options.env = env;
     rocksdb::Status s = rocksdb::LoadOptionsFromFile(config_options, options_file, opt, cf_descs);
-    printf("opt.reset_scheme : %u\n",opt->reset_scheme);
+    // printf("opt.reset_scheme : %u\n",opt->reset_scheme);
     if (!s.ok()) {
       throw utils::Exception(std::string("RocksDB LoadOptionsFromFile: ") + s.ToString());
     }
