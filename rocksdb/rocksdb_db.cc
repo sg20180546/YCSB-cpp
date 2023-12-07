@@ -243,7 +243,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
     if (!s.ok()) {
       throw utils::Exception(std::string("RocksDB CreateFromUri: ") + s.ToString());
     }
-    printf("env is nullptr ? %s %p\n",env ? "no" : "yes",env);
+    printf("env is nullptr ? %s %p filesystem %p\n",env ? "no" : "yes",env,env->GetFileSystem().get());
     opt->env = env;
   }else{
     printf("why ?? 2\n");
