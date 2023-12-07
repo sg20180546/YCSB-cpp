@@ -214,7 +214,7 @@ void RocksdbDB::Init() {
     // printf("rocksdb::DB::Open1\n");
     s = rocksdb::DB::Open(opt, db_path, &db_);
   } else {
-    // printf("rocksdb::DB::Open2\n");
+    printf("rocksdb::DB::Open2 %p\n",opt.env->GetFileSystem().get());
     s = rocksdb::DB::Open(opt, db_path, cf_descs, &cf_handles, &db_);
   }
   if (!s.ok()) {
@@ -256,6 +256,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
     config_options.input_strings_escaped = true;
     config_options.env = env;
     rocksdb::Status s = rocksdb::LoadOptionsFromFile(config_options, options_file, opt, cf_descs);
+    
     // printf("opt.reset_scheme : %u\n",opt->reset_scheme);
     if (!s.ok()) {
       throw utils::Exception(std::string("RocksDB LoadOptionsFromFile: ") + s.ToString());
@@ -369,6 +370,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
       opt->OptimizeLevelStyleCompaction();
     }
   }
+  opt->env = env;
 }
 
 void RocksdbDB::SerializeRow(const std::vector<Field> &values, std::string &data) {
