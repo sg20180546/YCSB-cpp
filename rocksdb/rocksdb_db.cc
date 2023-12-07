@@ -209,8 +209,10 @@ void RocksdbDB::Init() {
     }
   }
   if (cf_descs.empty()) {
+    printf("rocksdb::DB::Open1\n");
     s = rocksdb::DB::Open(opt, db_path, &db_);
   } else {
+    printf("rocksdb::DB::Open2\n");
     s = rocksdb::DB::Open(opt, db_path, cf_descs, &cf_handles, &db_);
   }
   if (!s.ok()) {
@@ -252,6 +254,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
     config_options.input_strings_escaped = true;
     config_options.env = env;
     rocksdb::Status s = rocksdb::LoadOptionsFromFile(config_options, options_file, opt, cf_descs);
+    printf("opt.reset_scheme : %lu\n",opt->reset_scheme);
     if (!s.ok()) {
       throw utils::Exception(std::string("RocksDB LoadOptionsFromFile: ") + s.ToString());
     }
