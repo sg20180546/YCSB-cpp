@@ -196,7 +196,9 @@ void RocksdbDB::Init() {
   opt.create_if_missing = true;
   std::vector<rocksdb::ColumnFamilyDescriptor> cf_descs;
   std::vector<rocksdb::ColumnFamilyHandle *> cf_handles;
+  printf("YCSB GetOptions==================\n");
   GetOptions(props, &opt, &cf_descs);
+  printf("YCSB GetOptions==================\n");
 #ifdef USE_MERGEUPDATE
   opt.merge_operator.reset(new YCSBUpdateMerge);
 #endif
@@ -254,7 +256,7 @@ void RocksdbDB::GetOptions(const utils::Properties &props, rocksdb::Options *opt
     config_options.input_strings_escaped = true;
     config_options.env = env;
     rocksdb::Status s = rocksdb::LoadOptionsFromFile(config_options, options_file, opt, cf_descs);
-    printf("opt.reset_scheme : %lu\n",opt->reset_scheme);
+    printf("opt.reset_scheme : %u\n",opt->reset_scheme);
     if (!s.ok()) {
       throw utils::Exception(std::string("RocksDB LoadOptionsFromFile: ") + s.ToString());
     }
