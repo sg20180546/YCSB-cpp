@@ -5,18 +5,18 @@
 #   Read/read-modify-write ratio: 50/50
 #   Default data size: 1 KB records (10 fields, 100 bytes each, plus key)
 #   Request distribution: zipfian
-# 10485760 20971520 33554432
+# 10485760 20971520 33554432 58720256
 recordcount=10485760
-operationcount=33554432
+operationcount=58720256
 workload=com.yahoo.ycsb.workloads.CoreWorkload
 
 readallfields=true
 
 readproportion=0
-updateproportion=0
+updateproportion=0.05
 scanproportion=0
-insertproportion=0.5
-readmodifywriteproportion=0.5
+insertproportion=0.95
+readmodifywriteproportion=0
 
 requestdistribution=zipfian
 
