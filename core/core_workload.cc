@@ -219,7 +219,7 @@ std::string CoreWorkload::BuildKeyName(uint64_t key_num) {
   std::string prekey = "user";
   std::string value = std::to_string(key_num);
   int fill = std::max(0, zero_padding_ - static_cast<int>(value.size()));
-  printf("fill %d zero padding %d value size%lu\n",fill,zero_padding_,value.size());
+  // printf("fill %d zero padding %d value size%lu\n",fill,zero_padding_,value.size());
   return prekey.append(fill, '0').append(value);
 }
 
@@ -361,7 +361,7 @@ DB::Status CoreWorkload::TransactionInsert(DB &db) {
 23 user5089448962119695308
 
 */
-  printf("%lu %s\n",key.size(),key.c_str());
+  // printf("%lu %s\n",key.size(),key.c_str());
   DB::Status s = db.Insert(table_name_, key, values);
   transaction_insert_key_sequence_->Acknowledge(key_num);
   return s;

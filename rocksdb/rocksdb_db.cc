@@ -382,6 +382,7 @@ void RocksdbDB::SerializeRow(const std::vector<Field> &values, std::string &data
     data.append(reinterpret_cast<char *>(&len), sizeof(uint32_t));
     data.append(field.value.data(), field.value.size());
   }
+  // printf("data size : %lu\n")
 }
 
 void RocksdbDB::DeserializeRowFilter(std::vector<Field> &values, const char *p, const char *lim,
@@ -526,6 +527,7 @@ DB::Status RocksdbDB::InsertSingle(const std::string &table, const std::string &
   SerializeRow(values, data);
   rocksdb::WriteOptions wopt;
   wopt.disableWAL=true;
+  printf("key size %lu data size %lu\n",key.size(),data.size());
   rocksdb::Status s = db_->Put(wopt, key, data);
   if (!s.ok()) {
     throw utils::Exception(std::string("RocksDB Put: ") + s.ToString());
