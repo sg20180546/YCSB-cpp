@@ -219,8 +219,15 @@ std::string CoreWorkload::BuildKeyName(uint64_t key_num) {
   std::string prekey = "user";
   std::string value = std::to_string(key_num);
   int fill = std::max(0, zero_padding_ - static_cast<int>(value.size()));
+  /*
+  fill 0 zero padding 1 value size20
+  24 user 13045804923572174204
+  */
+
   // printf("fill %d zero padding %d value size%lu\n",fill,zero_padding_,value.size());
-  return prekey.append(fill, '0').append(value);
+  prekey.append(fill, '0').append(value).resize(16);
+  prekey.shrink_to_fit();
+  return prekey;
 }
 
 void CoreWorkload::BuildValues(std::vector<ycsbc::DB::Field> &values) {

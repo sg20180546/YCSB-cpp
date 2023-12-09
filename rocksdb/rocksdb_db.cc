@@ -527,7 +527,18 @@ DB::Status RocksdbDB::InsertSingle(const std::string &table, const std::string &
   SerializeRow(values, data);
   rocksdb::WriteOptions wopt;
   wopt.disableWAL=true;
-  printf("key size %lu data size %lu\n",key.size(),data.size());
+
+  /*
+  key size 23 data size 1140
+key size 24 data size 1140
+key size 23 data size 1140
+key size 23 data size 1140
+key size 23 data size 1140
+key size 23 data size 1140
+key size 24 data size 1140
+key size 23 data size 1140
+  */
+  // printf("key size %lu data size %lu\n",key.size(),data.size());
   rocksdb::Status s = db_->Put(wopt, key, data);
   if (!s.ok()) {
     throw utils::Exception(std::string("RocksDB Put: ") + s.ToString());
