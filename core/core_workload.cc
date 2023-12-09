@@ -353,6 +353,7 @@ DB::Status CoreWorkload::TransactionInsert(DB &db) {
   const std::string key = BuildKeyName(key_num);
   std::vector<DB::Field> values;
   BuildValues(values);
+  printf("%lu %s\n",key.size(),key.c_str());
   DB::Status s = db.Insert(table_name_, key, values);
   transaction_insert_key_sequence_->Acknowledge(key_num);
   return s;
