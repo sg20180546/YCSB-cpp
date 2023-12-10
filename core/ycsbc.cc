@@ -162,7 +162,7 @@ int main(const int argc, const char *argv[]) {
   }
 
   measurements->Reset();
-  std::this_thread::sleep_for(std::chrono::seconds(stoi(props.GetProperty("sleepafterload", "120"))));
+  std::this_thread::sleep_for(std::chrono::seconds(stoi(props.GetProperty("sleepafterload", "300"))));
 
 
   // transaction phase
