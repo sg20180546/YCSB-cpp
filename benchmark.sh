@@ -2,8 +2,8 @@ for i in 1 2 3
 do
     for workload_type in a b c d e f
     do
-        sudo rm -rf ~/log
-        sudo mkdir -p ~/log
+        sudo rm -rf /home/femu/log
+        sudo mkdir -p /home/femu/log
         echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
         sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log
         sudo cp /home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini ~/log/zenfsoptions.ini
