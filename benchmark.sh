@@ -9,7 +9,7 @@ do
         sudo cp /home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini /home/femu/log/zenfsoptions.ini
 
         sudo /home/femu/YCSB-cpp/ycsb -load -run -db rocksdb -P workloads/workload${workload_type} -P \
-                 rocksdb/rocksdb.properties -s > /home/femu/access_testdata/YCSB/CAZACA_${workload_type}_i
+                 rocksdb/rocksdb.properties -s > /home/femu/access_testdata/YCSB/CAZACA_${workload_type}_${i}
     done
 done
 
