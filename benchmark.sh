@@ -44,3 +44,7 @@ do
     done
 done
 
+echo "all done"
+
+sudo /home/femu/access_testdata/sendresultmail
+
