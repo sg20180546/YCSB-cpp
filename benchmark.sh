@@ -33,9 +33,9 @@ do
             sudo rm -rf /home/femu/log
             sudo mkdir -p /home/femu/log
             echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
-            sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log
+            sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
 
-            
+            echo ${RESULT_PATH}
             sudo cp /home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini /home/femu/log/zenfsoptions.ini
 
             sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
