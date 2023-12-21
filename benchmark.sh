@@ -27,6 +27,7 @@ do
                 fi
             if [ -f ${RESULT_PATH} ]; then
                 echo "already $RESULT_PATH exists"
+                sleep 30
                 break
             fi
             sudo rm -rf /home/femu/log
