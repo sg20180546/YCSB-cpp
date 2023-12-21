@@ -25,6 +25,10 @@ do
                 else  
                     echo "error"
                 fi
+            if [ -f ${RESULT_PATH} ]; then
+                echo "already $RESULT_PATH exists"
+                break
+            fi
             sudo rm -rf /home/femu/log
             sudo mkdir -p /home/femu/log
             echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
