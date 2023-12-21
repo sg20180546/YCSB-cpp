@@ -36,7 +36,7 @@ do
             sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
 
             echo ${RESULT_PATH}
-            sudo cp /home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini /home/femu/log/zenfsoptions.ini
+            sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
 
             sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
                     rocksdb/rocksdb.properties -s > ${RESULT_PATH}
