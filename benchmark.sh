@@ -41,7 +41,14 @@ do
             sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
 
             sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
-                    rocksdb/rocksdb.properties -s > ${RESULT_PATH}
+                    rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
+            
+            if grep -q "Load throughput" ${RESULT_DIR_PATH}/tmp; then
+                cat ${RESULT_DIR_PATH}/tmp > ${RESULT_PATH}
+                rm -rf ${RESULT_DIR_PATH}/tmp
+            else
+                cat ${RESULT_DIR_PATH}/tmp > ${RESULT_DIR_PATH}/failed
+            fi
         done
     done
 done
