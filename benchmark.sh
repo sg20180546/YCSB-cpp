@@ -8,19 +8,19 @@ for i in 1 2 3
 do
     for workload_type in a d e
     do  
-        for SCHEME in $LIZA $LIZACA $CAZA $CAZACA
+        for SCHEME in $CAZA $CAZACA $LIZA $LIZACA
         do
                 if [ $SCHEME -eq $LIZA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/result_${workload_type}_LIZA_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_${i}.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizaoption.ini
                 elif [ $SCHEME -eq $LIZACA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/result_${workload_type}_LIZACA_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/B_${workload_type}_LIZACA_${i}.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizacaoption.ini
                 elif [ $SCHEME -eq $CAZA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/result_${workload_type}_CAZA_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/C_${workload_type}_CAZA_${i}.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazaoption.ini
                 elif [ $SCHEME -eq $CAZACA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/result_${workload_type}_CAZACA_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/D_${workload_type}_CAZACA_${i}.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazacaoption.ini
                 else  
                     echo "error"
