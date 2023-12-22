@@ -8,7 +8,7 @@ for i in 1 2 3
 do
     for workload_type in a d e
     do  
-        for SCHEME in $LIZA $LIZACA $CAZA $CAZACA
+        for SCHEME in $LIZA $CAZA $CAZACA $LIZACA
         do
                 if [ $SCHEME -eq $LIZA ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_${i}.txt
