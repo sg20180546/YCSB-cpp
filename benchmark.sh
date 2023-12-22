@@ -4,7 +4,7 @@ CAZA=2
 CAZACA=3
 OPTIONS=/home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/femu/access_testdata/YCSB
-for i in 1 2 3
+for i in 2 3
 do
     for workload_type in a d e
     do  
