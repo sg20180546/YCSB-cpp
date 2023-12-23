@@ -202,7 +202,7 @@ void RocksdbDB::Init() {
 
   dbstats->set_stats_level(static_cast<ROCKSDB_NAMESPACE::StatsLevel>(ROCKSDB_NAMESPACE::StatsLevel::kExceptDetailedTimers));
   opt.create_if_missing = true;
-  opt.statistics=dbstats;
+  
   std::vector<rocksdb::ColumnFamilyDescriptor> cf_descs;
   std::vector<rocksdb::ColumnFamilyHandle *> cf_handles;
   printf("YCSB GetOptions==================\n");
@@ -219,6 +219,7 @@ void RocksdbDB::Init() {
       throw utils::Exception(std::string("RocksDB DestroyDB: ") + s.ToString());
     }
   }
+  opt.statistics=dbstats;
   if (cf_descs.empty()) {
     // printf("rocksdb::DB::Open1\n");
     s = rocksdb::DB::Open(opt, db_path, &db_);
