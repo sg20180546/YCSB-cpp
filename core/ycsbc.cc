@@ -134,6 +134,7 @@ int main(const int argc, const char *argv[]) {
                                  measurements, &latch, status_interval);
     }
     std::vector<std::future<int>> client_threads;
+    printf("num_threads %d\n",num_threads);
     for (int i = 0; i < num_threads; ++i) {
       int thread_ops = total_ops / num_threads;
       if (i < total_ops % num_threads) {
