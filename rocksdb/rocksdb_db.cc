@@ -196,7 +196,7 @@ void RocksdbDB::Init() {
   rocksdb::Options opt;
   // opt.statistics=new std::shared_ptr(new Statistics());
   dbstats = ROCKSDB_NAMESPACE::CreateDBStatistics();
-  dbstats->set_stats_level(static_cast<StatsLevel>(ROCKSDB_NAMESPACE::StatsLevel::kExceptDetailedTimers));
+  dbstats->set_stats_level(static_cast<ROCKSDB_NAMESPACE::StatsLevel>(ROCKSDB_NAMESPACE::StatsLevel::kExceptDetailedTimers));
   opt.create_if_missing = true;
   opt.statistics=dbstats;
   std::vector<rocksdb::ColumnFamilyDescriptor> cf_descs;
