@@ -20,6 +20,7 @@
 #include <rocksdb/write_batch.h>
 
 namespace {
+  static class std::shared_ptr<ROCKSDB_NAMESPACE::Statistics> dbstats;
   const std::string PROP_NAME = "rocksdb.dbname";
   const std::string PROP_NAME_DEFAULT = "";
 
@@ -193,7 +194,11 @@ void RocksdbDB::Init() {
   }
 
   rocksdb::Options opt;
+  // opt.statistics=new std::shared_ptr(new Statistics());
+  dbstats = ROCKSDB_NAMESPACE::CreateDBStatistics();
+  dbstats->set_stats_level(static_cast<StatsLevel>(ROCKSDB_NAMESPACE::StatsLevel::kExceptDetailedTimers));
   opt.create_if_missing = true;
+  opt.statistics=dbstats;
   std::vector<rocksdb::ColumnFamilyDescriptor> cf_descs;
   std::vector<rocksdb::ColumnFamilyHandle *> cf_handles;
   printf("YCSB GetOptions==================\n");
@@ -224,6 +229,7 @@ void RocksdbDB::Init() {
 
 void RocksdbDB::Cleanup() {
   const std::lock_guard<std::mutex> lock(mu_);
+  printf("%s",dbstats->ToString().c_str());
   if (--ref_cnt_) {
     return;
   }
