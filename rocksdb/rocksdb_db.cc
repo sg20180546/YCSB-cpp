@@ -195,10 +195,10 @@ void RocksdbDB::Init() {
 
   rocksdb::Options opt;
   dbstats = ROCKSDB_NAMESPACE::CreateDBStatistics();
-    printf("ycsb %p\n",dbstats.get());
+    // printf("ycsb %p\n",dbstats.get());
   ROCKSDB_NAMESPACE::Statistics::CreateFromString(ROCKSDB_NAMESPACE::ConfigOptions(),
                                             "", &dbstats);
-  printf("ycsb 2 %p\n",dbstats.get());
+  // printf("ycsb 2 %p\n",dbstats.get());
 
   dbstats->set_stats_level(static_cast<ROCKSDB_NAMESPACE::StatsLevel>(ROCKSDB_NAMESPACE::StatsLevel::kExceptDetailedTimers));
   opt.create_if_missing = true;
