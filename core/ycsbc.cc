@@ -140,7 +140,7 @@ int main(const int argc, const char *argv[]) {
       if (i < total_ops % num_threads) {
         thread_ops++;
       }
-
+      printf("%d\n",i);
       client_threads.emplace_back(std::async(std::launch::async, ycsbc::ClientThread, dbs[i], &wl,
                                              thread_ops, true, true, !do_transaction, &latch, nullptr));
     }
