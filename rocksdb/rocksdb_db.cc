@@ -221,7 +221,7 @@ void RocksdbDB::Init() {
     // printf("rocksdb::DB::Open1\n");
     s = rocksdb::DB::Open(opt, db_path, &db_);
   } else {
-    printf("rocksdb::DB::Open2 %p\n",opt.env->GetFileSystem().get());
+    printf("rocksdb::DB::Open2 %p statistics %p\n",opt.env->GetFileSystem().get(),opt.statistics.get());
     s = rocksdb::DB::Open(opt, db_path, cf_descs, &cf_handles, &db_);
   }
   if (!s.ok()) {
