@@ -194,9 +194,10 @@ void RocksdbDB::Init() {
   }
 
   rocksdb::Options opt;
+  dbstats = ROCKSDB_NAMESPACE::CreateDBStatistics();
   ROCKSDB_NAMESPACE::Statistics::CreateFromString(ROCKSDB_NAMESPACE::ConfigOptions(),
                                             "", &dbstats);
-  dbstats = ROCKSDB_NAMESPACE::CreateDBStatistics();
+  
 
   dbstats->set_stats_level(static_cast<ROCKSDB_NAMESPACE::StatsLevel>(ROCKSDB_NAMESPACE::StatsLevel::kExceptDetailedTimers));
   opt.create_if_missing = true;
