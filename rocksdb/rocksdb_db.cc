@@ -194,7 +194,7 @@ void RocksdbDB::Init() {
   }
 
   rocksdb::Options opt;
-  Status s = Statistics::CreateFromString(ROCKSDB_NAMESPACE::ConfigOptions(),
+  Status s = ROCKSDB_NAMESPACE::Statistics::CreateFromString(ROCKSDB_NAMESPACE::ConfigOptions(),
                                             "", &dbstats);
   dbstats = ROCKSDB_NAMESPACE::CreateDBStatistics();
 
