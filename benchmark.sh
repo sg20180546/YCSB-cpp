@@ -32,23 +32,27 @@ do
                 continue
                 # break
             fi
-            sudo rm -rf /home/femu/log
-            sudo mkdir -p /home/femu/log
-            echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
-            sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
+            while : 
+                do
+                sudo rm -rf /home/femu/log
+                sudo mkdir -p /home/femu/log
+                echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
+                sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
 
-            echo ${RESULT_PATH}
-            sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
+                echo ${RESULT_PATH}
+                sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
 
-            sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
-                    rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
-            
-            if grep -q "total samezone score" ${RESULT_DIR_PATH}/tmp; then
-                cat ${RESULT_DIR_PATH}/tmp > ${RESULT_PATH}
-                rm -rf ${RESULT_DIR_PATH}/tmp
-            else
-                cat ${RESULT_DIR_PATH}/tmp > ${RESULT_DIR_PATH}/failed
-            fi
+                sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
+                        rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
+                
+                if grep -q "total samezone score" ${RESULT_DIR_PATH}/tmp; then
+                    cat ${RESULT_DIR_PATH}/tmp > ${RESULT_PATH}
+                    rm -rf ${RESULT_DIR_PATH}/tmp
+                    break
+                else
+                    cat ${RESULT_DIR_PATH}/tmp > ${RESULT_DIR_PATH}/failed
+                fi
+            done
         done
     done
 done
