@@ -51,6 +51,7 @@ do
                     break
                 else
                     cat ${RESULT_DIR_PATH}/tmp > ${RESULT_DIR_PATH}/failed
+                    sleep 5
                 fi
             done
         done
