@@ -4,23 +4,23 @@ CAZA=2
 CAZACA=3
 OPTIONS=/home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/femu/access_testdata/YCSB
-for i in 1 2 3
+for i in 1
 do
     for workload_type in a d e
     do  
         for SCHEME in $LIZA $LIZACA $CAZA $CAZACA
         do
                 if [ $SCHEME -eq $LIZA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_FAR_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_FAR_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizaoption.ini
                 elif [ $SCHEME -eq $LIZACA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/B_${workload_type}_LIZACA_FAR_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/B_${workload_type}_LIZACA_FAR_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizacaoption.ini
                 elif [ $SCHEME -eq $CAZA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/C_${workload_type}_CAZA_FAR_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/C_${workload_type}_CAZA_FAR_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazaoption.ini
                 elif [ $SCHEME -eq $CAZACA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/D_${workload_type}_CAZACA_FAR_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/D_${workload_type}_CAZACA_FAR_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazacaoption.ini
                 else  
                     echo "error"
