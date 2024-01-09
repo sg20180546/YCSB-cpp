@@ -11,16 +11,16 @@ do
         for SCHEME in $LIZA $LIZACA $CAZA $CAZACA
         do
                 if [ $SCHEME -eq $LIZA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_EXP_${i}_timelapse.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizaoption.ini
                 elif [ $SCHEME -eq $LIZACA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/B_${workload_type}_LIZACA_EXP_${i}_timelapse.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/B_${workload_type}_LIZACA_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizacaoption.ini
                 elif [ $SCHEME -eq $CAZA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/C_${workload_type}_CAZA_EXP_${i}_timelapse.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/C_${workload_type}_CAZA_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazaoption.ini
                 elif [ $SCHEME -eq $CAZACA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/D_${workload_type}_CAZACA_EXP_${i}_timelapse.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/D_${workload_type}_CAZACA_${i}_timelapse.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazacaoption.ini
                 else  
                     echo "error"
