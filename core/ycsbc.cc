@@ -134,12 +134,13 @@ int main(const int argc, const char *argv[]) {
                                  measurements, &latch, status_interval);
     }
     std::vector<std::future<int>> client_threads;
+    // printf("num_threads %d\n",num_threads);
     for (int i = 0; i < num_threads; ++i) {
       int thread_ops = total_ops / num_threads;
       if (i < total_ops % num_threads) {
         thread_ops++;
       }
-
+      // printf("%d\n",i);
       client_threads.emplace_back(std::async(std::launch::async, ycsbc::ClientThread, dbs[i], &wl,
                                              thread_ops, true, true, !do_transaction, &latch, nullptr));
     }
@@ -162,7 +163,7 @@ int main(const int argc, const char *argv[]) {
   }
 
   measurements->Reset();
-  std::this_thread::sleep_for(std::chrono::seconds(stoi(props.GetProperty("sleepafterload", "0"))));
+  // std::this_thread::sleep_for(std::chrono::seconds(stoi(props.GetProperty("sleepafterload", "10"))));
 
 
   // transaction phase
