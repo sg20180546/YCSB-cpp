@@ -1,22 +1,27 @@
-
-
-BASELINE=0
-SMR_ZC=1
-
-OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
-RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
-for i in 1 2
+LIZA=0
+LIZACA=1
+CAZA=2
+CAZACA=3
+OPTIONS=/home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini
+RESULT_DIR_PATH=/home/femu/access_testdata/YCSB
+for i in 1
 do
     for workload_type in a d e
     do  
-        for SCHEME in $BASELINE $SMR_ZC
+        for SCHEME in $LIZA $LIZACA $CAZA $CAZACA
         do
-                if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_baseline.ini
-                elif [ $SCHEME -eq $SMR_ZC ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
+                if [ $SCHEME -eq $LIZA ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/A_${workload_type}_LIZA_${i}_timelapse.txt
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizaoption.ini
+                elif [ $SCHEME -eq $LIZACA ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/B_${workload_type}_LIZACA_${i}_timelapse.txt
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/lizacaoption.ini
+                elif [ $SCHEME -eq $CAZA ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/C_${workload_type}_CAZA_${i}_timelapse.txt
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazaoption.ini
+                elif [ $SCHEME -eq $CAZACA ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/D_${workload_type}_CAZACA_${i}_timelapse.txt
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/cazacaoption.ini
                 else  
                     echo "error"
                 fi
@@ -29,18 +34,18 @@ do
             fi
             while : 
                 do
-                sudo rm -rf /home/sungjin/log
-                sudo mkdir -p /home/sungjin/log
-                echo "mq-deadline" | sudo tee /sys/block/sdb/queue/scheduler
-                sudo /home/sungjin/ZC_SMR/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/sdb --aux_path=/home/sungjin/log > mkfs_log
+                sudo rm -rf /home/femu/log
+                sudo mkdir -p /home/femu/log
+                echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
+                sudo /home/femu/CAZA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
 
                 echo ${RESULT_PATH}
-                sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
+                sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
+                sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
-                if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
+                if grep -q "total samezone score" ${RESULT_DIR_PATH}/tmp; then
                     cat ${RESULT_DIR_PATH}/tmp > ${RESULT_PATH}
                     rm -rf ${RESULT_DIR_PATH}/tmp
                     break
@@ -55,5 +60,5 @@ done
 
 echo "all done"
 
-sudo /home/sungjin/access_testdata/sendresultmail
+sudo /home/femu/access_testdata/sendresultmail
 
