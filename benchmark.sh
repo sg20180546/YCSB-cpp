@@ -15,7 +15,7 @@ do
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_baseline.ini
                 elif [ $SCHEME -eq $SMR_ZC ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
                 else  
                     echo "error"
@@ -47,6 +47,7 @@ do
                 else
                     cat ${RESULT_DIR_PATH}/tmp > ${RESULT_DIR_PATH}/failed
                     sleep 5
+                    # break
                 fi
             done
         done
