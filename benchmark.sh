@@ -2,6 +2,7 @@
 
 BASELINE=0
 SMR_ZC=1
+PCA=2
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
@@ -17,6 +18,9 @@ do
                 elif [ $SCHEME -eq $SMR_ZC ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
+                elif [ $SCHEME -eq $PCA ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${i}.txt
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_pca.ini
                 else  
                     echo "error"
                 fi
