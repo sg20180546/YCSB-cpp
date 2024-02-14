@@ -5,11 +5,11 @@ SMR_ZC=1
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
-for i in 1 2
+for i in 1 2 3
 do
-    for workload_type in a d e
+    for workload_type in a
     do  
-        for SCHEME in $BASELINE $SMR_ZC
+        for SCHEME in $SMR_ZC
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${i}.txt
