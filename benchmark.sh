@@ -10,7 +10,7 @@ for i in 1 2 3
 do
     for workload_type in a
     do  
-        for SCHEME in $BASELINE
+        for SCHEME in $BASELINE $SMR_ZC $PCA
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${i}.txt
