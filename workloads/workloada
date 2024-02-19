@@ -12,9 +12,9 @@ workload=com.yahoo.ycsb.workloads.CoreWorkload
 
 readallfields=true
 
-readproportion=0.01
+readproportion=0
 updateproportion=0
-scanproportion=0.01
+scanproportion=0.02
 insertproportion=0.98
 
 requestdistribution=zipfian
