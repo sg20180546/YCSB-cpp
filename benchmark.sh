@@ -15,13 +15,13 @@ do
         for SCHEME in  $PCA
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${4}GB_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_baseline.ini
                 elif [ $SCHEME -eq $SMR_ZC ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${4}GB_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
                 elif [ $SCHEME -eq $PCA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${4}GB_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_pca.ini
                 else  
                     echo "error"
