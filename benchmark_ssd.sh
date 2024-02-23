@@ -38,7 +38,7 @@ do
                 sudo rm -rf /home/sungjin/log
                 sudo mkdir -p /home/sungjin/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme1n2/queue/scheduler
-                sudo /home/sungjin/ZC_SMR/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme1n2 --aux_path=/home/sungjin/log > mkfs_log
+                sudo /home/sungjin/ZC_SSD/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme1n2 --aux_path=/home/sungjin/log > mkfs_log
 
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
