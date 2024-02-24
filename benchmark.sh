@@ -12,7 +12,7 @@ for i in 1 2 3 4 5 6 7 8 9 10
 do
     for workload_type in a
     do  
-        for SCHEME in   $SMR_ZC $PCA
+        for SCHEME in    $PCA $SMR_ZC
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
