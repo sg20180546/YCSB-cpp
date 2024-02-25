@@ -6,7 +6,7 @@
 #   Default data size: 1 KB records (10 fields, 100 bytes each, plus key)
 #   Request distribution: zipfian
 # 25165824
-recordcount=23068672
+recordcount=20971520
 operationcount=7340032
 workload=com.yahoo.ycsb.workloads.CoreWorkload
 
