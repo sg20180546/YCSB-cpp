@@ -7,7 +7,7 @@ PCA=2
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
 
-CACHESIZE=4
+CACHESIZE=2
 for i in 1 2 3 4 5 6 7 8 9 10
 do
     for workload_type in a
