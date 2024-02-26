@@ -7,12 +7,12 @@ PCA=2
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
 
-CACHESIZE=2
+CACHESIZE=4
 for i in 1 2 3 4 5 6 7 8 9 10
 do
-    for workload_type in a
+    for workload_type in a 
     do  
-        for SCHEME in    $PCA $SMR_ZC
+        for SCHEME in  $BASELINE $SMR_ZC $PCA
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
@@ -43,7 +43,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload${workload_type} -P \
+                sudo /home/sungjin/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
