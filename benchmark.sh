@@ -8,20 +8,20 @@ OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
 
 CACHESIZE=4
-for i in 1 2 3 4 5 6 7 8 9 10
+for i in 1 2 3
 do
     for workload_type in a 
     do  
         for SCHEME in  $SMR_ZC $PCA
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_READ_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_baseline.ini
                 elif [ $SCHEME -eq $SMR_ZC ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${CACHESIZE}GB_READ_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
                 elif [ $SCHEME -eq $PCA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${CACHESIZE}GB_READ_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_pca.ini
                 else  
                     echo "error"
@@ -43,7 +43,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload${workload_type} -P \
+                sudo /home/sungjin/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
