@@ -1,8 +1,9 @@
 
 
-BASELINE=0
+ZC_NOAWARE=0
 SMR_ZC=1
 PCA=2
+# ZC_NOAWARE=3
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
@@ -12,11 +13,11 @@ for i in 1 2 3
 do
     for workload_type in scanwriterandom
     do  
-        for SCHEME in   $SMR_ZC $PCA
+        for SCHEME in  $ZC_NOAWARE $SMR_ZC $PCA
         do
-                if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_baseline.ini
+                if [ $SCHEME -eq $ZC_NOAWARE ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/NOAWARE_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_noblockcacheaware.ini
                 elif [ $SCHEME -eq $SMR_ZC ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
