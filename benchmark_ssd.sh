@@ -44,7 +44,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload${workload_type} -P \
+                sudo /home/sungjin/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload${workload_type} -P \
                         rocksdb/rocksdb.properties2 -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
