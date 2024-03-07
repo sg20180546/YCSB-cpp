@@ -10,7 +10,7 @@ RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
 CACHESIZE=4
 for i in 1 2 3
 do
-    for workload_type in readwriterandom
+    for workload_type in scanwriterandom
     do  
         for SCHEME in  $SMR_ZC $PCA
         do
