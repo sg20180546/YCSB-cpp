@@ -7,7 +7,7 @@
 #   Request distribution: zipfian
 # 25165824
 recordcount=20971520
-operationcount=21181235
+operationcount=20971520
 workload=com.yahoo.ycsb.workloads.CoreWorkload
 
 readallfields=true
