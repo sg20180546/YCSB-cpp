@@ -10,9 +10,9 @@ RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
 CACHESIZE=4
 for i in 1 2 3
 do
-    for workload_type in scanwriterandom
+    for workload_type in a scanwriterandom
     do  
-        for SCHEME in  $SMR_ZC $PCA
+        for SCHEME in $ZC_NOAWARE $SMR_ZC $PCA
         do
                 if [ $SCHEME -eq $ZC_NOAWARE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/NOAWARE_${workload_type}_${CACHESIZE}GB_${i}.txt
