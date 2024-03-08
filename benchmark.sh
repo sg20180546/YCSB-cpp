@@ -11,6 +11,9 @@ CACHESIZE=4
 
 PHASE=load
 
+A=a
+SCANWRITERANDOM=scanwriterandom
+
 for i in 1 2 3
 do
     for workload_type in a scanwriterandom
@@ -36,7 +39,8 @@ do
                 continue
                 # break
             fi
-            if [ $workload_type -eq "a" ]; then
+            
+            if [ $workload_type -eq $A ]; then
                 PHASE=load
             else
                 PHASE=run
