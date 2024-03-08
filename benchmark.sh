@@ -40,7 +40,7 @@ do
                 # break
             fi
             
-            if [ $WORKLOAD_TYPE -eq $A ]; then
+            if [ "$WORKLOAD_TYPE" == "$A" ]; then
                 PHASE=load
             else
                 PHASE=run
