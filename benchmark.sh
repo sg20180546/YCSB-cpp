@@ -16,7 +16,7 @@ SCANWRITERANDOM=scanwriterandom
 
 for i in 1 2 3
 do
-    for workload_type in a scanwriterandom
+    for workload_type in $A $SCANWRITERANDOM
     do  
         for SCHEME in $ZC_NOAWARE $SMR_ZC $PCA
         do
