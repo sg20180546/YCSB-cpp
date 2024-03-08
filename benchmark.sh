@@ -16,18 +16,18 @@ SCANWRITERANDOM=scanwriterandom
 
 for i in 1 2 3
 do
-    for workload_type in $A $SCANWRITERANDOM
+    for WORKLOAD_TYPE in $A $SCANWRITERANDOM
     do  
         for SCHEME in $ZC_NOAWARE $SMR_ZC $PCA
         do
                 if [ $SCHEME -eq $ZC_NOAWARE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/NOAWARE_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/NOAWARE_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_noblockcacheaware.ini
                 elif [ $SCHEME -eq $SMR_ZC ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
                 elif [ $SCHEME -eq $PCA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_pca.ini
                 else  
                     echo "error"
@@ -40,7 +40,7 @@ do
                 # break
             fi
             
-            if [ $workload_type -eq $A ]; then
+            if [ $WORKLOAD_TYPE -eq $A ]; then
                 PHASE=load
             else
                 PHASE=run
@@ -56,7 +56,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -${PHASE} -db rocksdb -P workloads/workload${workload_type} -P \
+                sudo /home/sungjin/YCSB-cpp/ycsb -${PHASE} -db rocksdb -P workloads/workload${WORKLOAD_TYPE} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
