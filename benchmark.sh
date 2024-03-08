@@ -8,6 +8,9 @@ OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
 
 CACHESIZE=4
+
+PHASE=load
+
 for i in 1 2 3
 do
     for workload_type in a scanwriterandom
@@ -33,6 +36,12 @@ do
                 continue
                 # break
             fi
+            if [ $workload_type -eq a ]; then
+                PHASE=load
+            else
+                PHASE=run
+            fi
+
             while : 
                 do
                 sudo rm -rf /home/sungjin/log
@@ -43,7 +52,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload${workload_type} -P \
+                sudo /home/sungjin/YCSB-cpp/ycsb -${PHASE} -db rocksdb -P workloads/workload${workload_type} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
