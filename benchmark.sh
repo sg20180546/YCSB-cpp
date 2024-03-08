@@ -11,8 +11,8 @@ CACHESIZE=4
 
 PHASE=load
 
-A=a
-SCANWRITERANDOM=scanwriterandom
+A="a"
+SCANWRITERANDOM="scanwriterandom"
 
 for i in 1 2 3
 do
@@ -40,7 +40,7 @@ do
                 # break
             fi
             
-            if [[ "$WORKLOAD_TYPE" == "$A" ]]; then
+            if [ "$WORKLOAD_TYPE" = "$A" ]; then
                 PHASE=load
             else
                 PHASE=run
