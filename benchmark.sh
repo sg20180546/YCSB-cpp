@@ -36,7 +36,7 @@ do
                 continue
                 # break
             fi
-            if [ $workload_type -eq a ]; then
+            if [ $workload_type -eq "a" ]; then
                 PHASE=load
             else
                 PHASE=run
