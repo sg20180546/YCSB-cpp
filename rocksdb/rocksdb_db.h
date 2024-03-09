@@ -8,6 +8,10 @@
 #ifndef YCSB_C_ROCKSDB_DB_H_
 #define YCSB_C_ROCKSDB_DB_H_
 
+#ifndef USE_MERGEUPDATE
+  #define USE_MERGEUPDATE
+#endif
+
 #include <string>
 #include <mutex>
 
