@@ -16,7 +16,7 @@ SCANWRITERANDOM="scanwriterandom"
 
 for i in 1 2 3
 do
-    for WORKLOAD_TYPE in workloadinsert90
+    for WORKLOAD_TYPE in insert90
     do  
         for SCHEME in $BASELINE $ZC_SEPERATION_INVALID $ZC_SEPERATION
         do
