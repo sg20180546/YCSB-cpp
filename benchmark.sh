@@ -1,8 +1,7 @@
 
 
 BASELINE=0
-ZC_SEPERATION=1
-ZC_SEPERATION_INVALID=2
+OPENPRI=1
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
@@ -16,16 +15,16 @@ SCANWRITERANDOM="scanwriterandom"
 
 for i in 1 2 3
 do
-    for WORKLOAD_TYPE in insert90
+    for WORKLOAD_TYPE in a
     do  
-        for SCHEME in $BASELINE $ZC_SEPERATION_INVALID $ZC_SEPERATION
+        for SCHEME in $BASELINE $OPENPRI
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_baseline.ini
-                elif [ $SCHEME -eq $ZC_SEPERATION ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SEPERATION_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_sep.ini
+                elif [ $SCHEME -eq $OPENPRI ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/OPENPRI_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_openpri.ini
                 elif [ $SCHEME -eq $ZC_SEPERATION_INVALID ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/SEPERATION_INVALID_${WORKLOAD_TYPE}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_sep_invalid.ini

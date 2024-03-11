@@ -1,8 +1,7 @@
 
 
-ZC_NOAWARE=0
-SMR_ZC=1
-PCA=2
+BASELINE=0
+OPENPRI=1
 # ZC_NOAWARE=3
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
@@ -17,14 +16,14 @@ for i in 1 2 3
 do
     for workload_type in a
     do  
-        for SCHEME in  $ZC_NOAWARE $SMR_ZC $PCA
+        for SCHEME in  $BASELINE $OPENPRI
         do
                 if [ $SCHEME -eq $ZC_NOAWARE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/NOAWARE_${workload_type}_${CACHESIZE}GB_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_noblockcacheaware.ini
+                    RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_baseline.ini
                 elif [ $SCHEME -eq $SMR_ZC ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_${workload_type}_${CACHESIZE}GB_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_large_io.ini
+                    RESULT_PATH=${RESULT_DIR_PATH}/OPENPRI_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_openpri.ini
                 elif [ $SCHEME -eq $PCA ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_pca.ini
