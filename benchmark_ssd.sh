@@ -18,10 +18,10 @@ do
     do  
         for SCHEME in  $BASELINE $OPENPRI
         do
-                if [ $SCHEME -eq $ZC_NOAWARE ]; then
+                if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_baseline.ini
-                elif [ $SCHEME -eq $SMR_ZC ]; then
+                elif [ $SCHEME -eq $OPENPRI ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/OPENPRI_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_openpri.ini
                 elif [ $SCHEME -eq $PCA ]; then
