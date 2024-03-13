@@ -537,7 +537,8 @@ DB::Status RocksdbDB::InsertSingle(const std::string &table, const std::string &
   std::string data;
   SerializeRow(values, data);
   rocksdb::WriteOptions wopt;
-  wopt.disableWAL=false;
+  // wopt.disableWAL=false;
+  wopt.disableWAL=true;
 
   /*
   key size 23 data size 1140
