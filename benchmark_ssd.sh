@@ -16,7 +16,7 @@ for i in 20 21 22
 do
     for workload_type in a
     do  
-        for SCHEME in  $BASELINE $OPENPRI
+        for SCHEME in  $OPENPRI $BASELINE
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
