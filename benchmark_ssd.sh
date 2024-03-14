@@ -12,7 +12,7 @@ CACHESIZE=4
 # load or run
 PHASE=load
 
-for i in 10 11 12
+for i in 20 21 22
 do
     for workload_type in a
     do  
