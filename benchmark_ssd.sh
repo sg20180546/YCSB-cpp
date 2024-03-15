@@ -5,7 +5,7 @@ OPENPRI=1
 # ZC_NOAWARE=3
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
-RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB
+RESULT_DIR_PATH=/home/sungjin/access_testdata/YCSB2
 
 
 CACHESIZE=4
