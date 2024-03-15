@@ -27,7 +27,7 @@ do
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_openpri.ini
                 elif [ $SCHEME -eq $RESTRICT ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/RESTRICT_${workload_type}_${CACHESIZE}GB_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_openpri2.ini
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_openpri2.ini
                 else  
                     echo "error"
                 fi
