@@ -2,6 +2,7 @@
 
 BASELINE=0
 OPENPRI=1
+RESTRICT=2
 # ZC_NOAWARE=3
 
 OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
@@ -12,11 +13,11 @@ CACHESIZE=4
 # load or run
 PHASE=load
 
-for i in 20 21 22
+for i in 1 2 3
 do
     for workload_type in a
     do  
-        for SCHEME in  $OPENPRI $BASELINE
+        for SCHEME in  $OPENPRI $RESTRICT $BASELINE 
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/BASELINE_${workload_type}_${CACHESIZE}GB_${i}.txt
@@ -24,9 +25,9 @@ do
                 elif [ $SCHEME -eq $OPENPRI ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/OPENPRI_${workload_type}_${CACHESIZE}GB_${i}.txt
                     OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/ssd_openpri.ini
-                elif [ $SCHEME -eq $PCA ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/SMR_ZC_pca_${workload_type}_${CACHESIZE}GB_${i}.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_pca.ini
+                elif [ $SCHEME -eq $RESTRICT ]; then
+                    RESULT_PATH=${RESULT_DIR_PATH}/RESTRICT_${workload_type}_${CACHESIZE}GB_${i}.txt
+                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/smr_openpri2.ini
                 else  
                     echo "error"
                 fi
