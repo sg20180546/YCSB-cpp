@@ -1,0 +1,91 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"hdr_histogram_add_library"
+		],
+		"files" : 
+		[
+			"HdrHistogram_c/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 72,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 3
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"HdrHistogram_c/src/libhdr_histogram.so.6.1.2",
+				"HdrHistogram_c/src/libhdr_histogram.so.6"
+			],
+			"targetId" : "hdr_histogram::@492ab7ff8d5ca7106c24",
+			"targetIndex" : 30,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"HdrHistogram_c/src/libhdr_histogram.so"
+			],
+			"targetId" : "hdr_histogram::@492ab7ff8d5ca7106c24",
+			"targetIndex" : 30,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"HdrHistogram_c/src/libhdr_histogram_static.a"
+			],
+			"targetId" : "hdr_histogram_static::@492ab7ff8d5ca7106c24",
+			"targetIndex" : 35,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "HdrHistogram_c/src",
+		"source" : "HdrHistogram_c/src"
+	}
+}

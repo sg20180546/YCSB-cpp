@@ -1,0 +1,48 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"HdrHistogram_c/include/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include/hdr",
+			"paths" : 
+			[
+				"HdrHistogram_c/include/hdr/hdr_histogram.h",
+				"HdrHistogram_c/include/hdr/hdr_histogram_log.h",
+				"HdrHistogram_c/include/hdr/hdr_interval_recorder.h",
+				"HdrHistogram_c/include/hdr/hdr_thread.h",
+				"HdrHistogram_c/include/hdr/hdr_time.h",
+				"HdrHistogram_c/include/hdr/hdr_writer_reader_phaser.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "HdrHistogram_c/include",
+		"source" : "HdrHistogram_c/include"
+	}
+}

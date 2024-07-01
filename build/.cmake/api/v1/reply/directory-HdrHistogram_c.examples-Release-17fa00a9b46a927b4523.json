@@ -1,0 +1,63 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"HdrHistogram_c/examples/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"HdrHistogram_c/examples/hdr_decoder"
+			],
+			"targetId" : "hdr_decoder::@3bf705a0487aa08c2c45",
+			"targetIndex" : 29,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"HdrHistogram_c/examples/hiccup"
+			],
+			"targetId" : "hiccup::@3bf705a0487aa08c2c45",
+			"targetIndex" : 37,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "HdrHistogram_c/examples",
+		"source" : "HdrHistogram_c/examples"
+	}
+}

@@ -1,0 +1,5 @@
+sudo make clean
+sudo make BIND_ROCKSDB=1 EXTRA_CXXFLAGS=-I/home/micron/CAZAandZACA/rocksdb/include \
+                    EXTRA_LDFLAGS="-L/home/femu/YCSB-cpp/build -ldl -lsnappy -lgflags -ldl -lz -u zenfs_filesystem_reg -lzbd -lzstd -laio -luring -llz4 -lbz2 -DUSE_MERGEUPDATE"
+
+

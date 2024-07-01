@@ -1,0 +1,96 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"HdrHistogram_c/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 85,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 90,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 114,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/hdr_histogram",
+			"exportName" : "hdr_histogram-targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "hdr_histogram::@492ab7ff8d5ca7106c24",
+					"index" : 30
+				},
+				{
+					"id" : "hdr_histogram_static::@492ab7ff8d5ca7106c24",
+					"index" : 35
+				},
+				{
+					"id" : "hdr_decoder::@3bf705a0487aa08c2c45",
+					"index" : 29
+				},
+				{
+					"id" : "hiccup::@3bf705a0487aa08c2c45",
+					"index" : 37
+				}
+			],
+			"paths" : 
+			[
+				"HdrHistogram_c/CMakeFiles/Export/lib/cmake/hdr_histogram/hdr_histogram-targets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/hdr_histogram",
+			"paths" : 
+			[
+				"build/HdrHistogram_c/hdr_histogram-config.cmake",
+				"build/HdrHistogram_c/hdr_histogram-config-version.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"build/HdrHistogram_c/hdr_histogram.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "HdrHistogram_c",
+		"source" : "HdrHistogram_c"
+	}
+}
