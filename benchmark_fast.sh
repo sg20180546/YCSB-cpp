@@ -3,8 +3,8 @@
 BASELINE=0
 ZEUFS=1
 
-OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/zenfsoptions.ini
-RESULT_DIR_PATH=/home/sungjin/FAST_testdata/YCSB
+OPTIONS=/home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini
+RESULT_DIR_PATH=/home/femu/FAST_testdata/YCSB
 
 CACHESIZE=4
 
@@ -21,10 +21,10 @@ do
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/${WORKLOAD_TYPE}_LSE.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/FAST_baseline.ini 
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/${WORKLOAD_TYPE}_ZEUFS.txt
-                    OPTIONS=/home/sungjin/YCSB-cpp/rocksdb/FAST_motiv_zonereset.ini
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_motiv_zonereset.ini
                 else  
                     echo "error"
                 fi
@@ -44,15 +44,15 @@ do
             while : 
                 do
                 /home/femu/zone_reset_all 0 1300
-                sudo rm -rf /home/sungjin/log
-                sudo mkdir -p /home/sungjin/log
+                sudo rm -rf /home/femu/log
+                sudo mkdir -p /home/femu/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
-                sudo /home/sungjin/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/sungjin/log > mkfs_log
+                sudo /home/femu/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
 
                 echo ${RESULT_PATH}
-                sudo cp ${OPTIONS} /home/sungjin/log/zenfsoptions.ini
+                sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
 
-                sudo /home/sungjin/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
+                sudo /home/femu/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
@@ -71,5 +71,5 @@ done
 
 echo "all done"
 
-sudo /home/sungjin/access_testdata/sendresultmail
+sudo /home/femu/access_testdata/sendresultmail
 
