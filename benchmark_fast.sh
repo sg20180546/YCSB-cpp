@@ -20,10 +20,10 @@ do
         for SCHEME in $BASELINE $ZEUFS
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LSE.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LSE_${i}.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_motiv_zonereset.ini
                 else  
                     echo "error"
@@ -43,10 +43,12 @@ do
 
             while : 
                 do
-                /home/femu/zone_reset_all 0 1300
+                /home/femu/zone_reset_all 0 100
                 sudo rm -rf /home/femu/log
                 sudo mkdir -p /home/femu/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
+                
+                
                 sudo /home/femu/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
 
                 echo ${RESULT_PATH}
