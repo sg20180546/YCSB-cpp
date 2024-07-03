@@ -20,10 +20,10 @@ do
         for SCHEME in $BASELINE $ZEUFS
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/${WORKLOAD_TYPE}_LSE.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LSE.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/${WORKLOAD_TYPE}_ZEUFS.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS.txt
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_motiv_zonereset.ini
                 else  
                     echo "error"
