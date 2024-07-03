@@ -56,7 +56,7 @@ do
                          -num=${SIZE} -benchmarks="fillrandom,stats" --fs_uri=zenfs://dev:nvme0n1 -statistics  -value_size=1024 \
                           -max_background_compactions=2   -max_background_flushes=2 -subcompactions=4  \
                           -histogram -seed=1699101730035899  -wait_for_compactions=false -enable_intraL0_compaction=false \
-                        -reset_scheme=${SCHEME} -tuning_point=100 -partial_reset_scheme=1 -disable_wal=false -zc=20 -until=20 \
+                        -reset_scheme=${SCHEME} -tuning_point=100 -partial_reset_scheme=1 -disable_wal=false -zc=30 -until=30 \
                         -allocation_scheme=0  -compaction_scheme=0 -level0_stop_writes_trigger=8 \
                          -max_compaction_start_level=5 -input_aware_scheme=0 \
                         -max_compaction_kick=0 -default_extent_size=1048576 -async_zc_enabled=0 > ${RESULT_DIR_PATH}/tmp
