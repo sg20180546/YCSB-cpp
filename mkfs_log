@@ -6,9 +6,10 @@ active resoruced 0
 active resoruced 1
 active resoruced 2
 active resoruced 3
+active resoruced 4
 device free space : 81920
 zone sz 0
-zenfs ptr 0x564fffc57e50
+zenfs ptr 0x5561b64f3e50
 FAR STAT 0 :: ZC Triggered Count : 0
 zone size at ~ 512
 ============================================================
@@ -66,9 +67,10 @@ active resoruced 0
 active resoruced 1
 active resoruced 2
 active resoruced 3
+active resoruced 4
 device free space : 81920
 zone sz 0
-zenfs ptr 0x564fffc57eb0
+zenfs ptr 0x5561b64f3eb0
 ZenFS file system created. Free space: 81920 MB
 FAR STAT 0 :: ZC Triggered Count : 0
 zone size at ~ 512
