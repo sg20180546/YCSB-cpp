@@ -13,7 +13,7 @@ CACHESIZE=4
 A="a"
 SCANWRITERANDOM="scanwriterandom"
 
-for i in 1
+for i in 2 3
 do
     for WORKLOAD_TYPE in zipfian latest uniform
     do  
@@ -24,7 +24,7 @@ do
                     OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
-                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_motiv_zonereset.ini
+                    OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
                 else  
                     echo "error"
                 fi
@@ -49,7 +49,7 @@ do
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
                 
                 
-                sudo /home/femu/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log > mkfs_log
+                sudo /home/femu/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log
 
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini

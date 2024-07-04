@@ -13,7 +13,7 @@ CACHESIZE=4
 A="a"
 SCANWRITERANDOM="scanwriterandom"
 
-for i in 1
+for i in 2 3
 do
     for WORKLOAD_TYPE in zipfian latest uniform
     do  
@@ -21,10 +21,10 @@ do
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LME4_${i}.txt
-                    OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline.ini 
+                    OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline_cosmos.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
-                    OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_motiv_zonereset.ini
+                    OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_FAR_cosmos.ini
                 else  
                     echo "error"
                 fi
