@@ -13,7 +13,7 @@ CACHESIZE=4
 A="a"
 SCANWRITERANDOM="scanwriterandom"
 
-for i in 2 3
+for i in 1 2 3
 do
     for WORKLOAD_TYPE in zipfian latest uniform
     do  
