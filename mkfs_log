@@ -1,0 +1,143 @@
+ZbdlibBackend :: Open() log erase unit size 0
+ZonedBlockDevice::Open :: 0
+Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
+PARTIAL RESET DISABLED
+active resoruced 0
+active resoruced 1
+active resoruced 2
+active resoruced 3
+active resoruced 4
+active resoruced 5
+active resoruced 6
+active resoruced 7
+active resoruced 8
+active resoruced 9
+active resoruced 10
+active resoruced 11
+active resoruced 12
+active resoruced 13
+device free space : 81920
+zone sz 0
+zenfs ptr 0x559b6aedce50
+FAR STAT 0 :: ZC Triggered Count : 0
+zone size at ~ 512
+============================================================
+FAR STAT 1 :: WWP (MB) : 0, R_wp : 100
+FAR STAT 2 :: ZC IO Blocking time : 0, Compaction Refused : 0
+FAR STAT 4 :: Zone Cleaning Trigger Time Lapse
+============================================================
+Total ZC Copied (MB) :: 0(0), Recaimed by ZC :: 0 
+============================================================
+
+FAR STAT 6-2 :: Compaction Blocked TimeLapse
+============================================================
+
+============================================================
+
+============================================================
+============================================================
+
+FAR STAT :: Time Lapse
+Sec 	Free 	RC 	RCZ 	RCP 	R_wp 	Twp 	erase_sz 	erase_sz_zc 	p_er_sz
+============================================================
+FAR STAT :: Partial Zone Reset 0
+called n : 0 erased unit n : 0
+Partial Zone Reset Decoupling : total : 0, to valid 0
+copied/erased ratio : (NULL)
+ZC read amp 0
+TOTAL I/O BLOKCING TIME 0
+TOTAL I/O BLOCKING TIME(ms) 0
+TOTAL ERASED AT RZR DEVICE VIEW : 0(MB)
+WWP 0(mb)READ LOCK OVERHEAD 0
+LEVEL 0 :: 
+LEVEL 1 :: 
+LEVEL 2 :: 
+LEVEL 3 :: 
+LEVEL 4 :: 
+LEVEL 5 :: 
+LEVEL 6 :: 
+LEVEL 7 :: 
+LEVEL 8 :: 
+LEVEL 9 :: 
+[0] samezone score : (none)	invalidate score (none)
+[1] samezone score : (none)	invalidate score (none)
+[2] samezone score : (none)	invalidate score (none)
+[3] samezone score : (none)	invalidate score (none)
+[4] samezone score : (none)	invalidate score (none)
+Cumulative I/O Blocking 0
+10~100
+============================================================
+
+ZbdlibBackend :: Open() log erase unit size 0
+ZonedBlockDevice::Open :: 0
+Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
+PARTIAL RESET DISABLED
+active resoruced 0
+active resoruced 1
+active resoruced 2
+active resoruced 3
+active resoruced 4
+active resoruced 5
+active resoruced 6
+active resoruced 7
+active resoruced 8
+active resoruced 9
+active resoruced 10
+active resoruced 11
+active resoruced 12
+active resoruced 13
+device free space : 81920
+zone sz 0
+zenfs ptr 0x559b6aedceb0
+ZenFS file system created. Free space: 81920 MB
+FAR STAT 0 :: ZC Triggered Count : 0
+zone size at ~ 512
+============================================================
+FAR STAT 1 :: WWP (MB) : 0, R_wp : 100
+FAR STAT 2 :: ZC IO Blocking time : 0, Compaction Refused : 0
+FAR STAT 4 :: Zone Cleaning Trigger Time Lapse
+============================================================
+Total ZC Copied (MB) :: 0(0), Recaimed by ZC :: 0 
+============================================================
+
+FAR STAT 6-2 :: Compaction Blocked TimeLapse
+============================================================
+
+============================================================
+
+============================================================
+============================================================
+
+FAR STAT :: Time Lapse
+Sec 	Free 	RC 	RCZ 	RCP 	R_wp 	Twp 	erase_sz 	erase_sz_zc 	p_er_sz
+============================================================
+FAR STAT :: Partial Zone Reset 0
+called n : 0 erased unit n : 0
+Partial Zone Reset Decoupling : total : 0, to valid 0
+copied/erased ratio : (NULL)
+copy/written ratio : 0/8192=0
+ZC read amp 0
+TOTAL I/O BLOKCING TIME 0
+TOTAL I/O BLOCKING TIME(ms) 0
+TOTAL ERASED AT RZR DEVICE VIEW : 0(MB)
+WWP 0(mb)READ LOCK OVERHEAD 0
+LEVEL 0 :: 
+LEVEL 1 :: 
+LEVEL 2 :: 
+LEVEL 3 :: 
+LEVEL 4 :: 
+LEVEL 5 :: 
+LEVEL 6 :: 
+LEVEL 7 :: 
+LEVEL 8 :: 
+LEVEL 9 :: 
+[0] samezone score : (none)	invalidate score (none)
+[1] samezone score : (none)	invalidate score (none)
+[2] samezone score : (none)	invalidate score (none)
+[3] samezone score : (none)	invalidate score (none)
+[4] samezone score : (none)	invalidate score (none)
+Cumulative I/O Blocking 0
+Small reset : 0/1 = 0
+10~100
+============================================================
+
