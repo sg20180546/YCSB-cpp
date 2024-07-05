@@ -1,6 +1,6 @@
 ZbdlibBackend :: Open() log erase unit size 0
 ZonedBlockDevice::Open :: 0
-Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
+Zone block device nr zones: 2016 max active: 2016 (2014) max open: 2016(2014) 
 PARTIAL RESET DISABLED
 active resoruced 0
 active resoruced 1
@@ -9,9 +9,9 @@ active resoruced 3
 active resoruced 4
 device free space : 81920
 zone sz 0
-zenfs ptr 0x5561b64f3e50
+zenfs ptr 0x562673395e50
 FAR STAT 0 :: ZC Triggered Count : 0
-zone size at ~ 512
+zone size at ~ 128
 ============================================================
 FAR STAT 1 :: WWP (MB) : 0, R_wp : 100
 FAR STAT 2 :: ZC IO Blocking time : 0, Compaction Refused : 0
@@ -61,7 +61,7 @@ Cumulative I/O Blocking 0
 
 ZbdlibBackend :: Open() log erase unit size 0
 ZonedBlockDevice::Open :: 0
-Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
+Zone block device nr zones: 2016 max active: 2016 (2014) max open: 2016(2014) 
 PARTIAL RESET DISABLED
 active resoruced 0
 active resoruced 1
@@ -70,10 +70,10 @@ active resoruced 3
 active resoruced 4
 device free space : 81920
 zone sz 0
-zenfs ptr 0x5561b64f3eb0
+zenfs ptr 0x562673395eb0
 ZenFS file system created. Free space: 81920 MB
 FAR STAT 0 :: ZC Triggered Count : 0
-zone size at ~ 512
+zone size at ~ 128
 ============================================================
 FAR STAT 1 :: WWP (MB) : 0, R_wp : 100
 FAR STAT 2 :: ZC IO Blocking time : 0, Compaction Refused : 0

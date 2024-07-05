@@ -17,10 +17,10 @@ for i in 1 2 3
 do
     for WORKLOAD_TYPE in zipfian latest uniform
     do  
-        for SCHEME in $BASELINE
+        for SCHEME in $BASELINE $ZEUFS
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LME4_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LSE_${i}.txt
                     OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline_cosmos.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
@@ -43,7 +43,7 @@ do
 
             while : 
                 do
-                sudo /home/micron/zone_reset_all 0 25
+                sudo /home/micron/zone_reset_all 0 100
                 sudo rm -rf /home/micron/log
                 sudo mkdir -p /home/micron/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
