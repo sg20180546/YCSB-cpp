@@ -357,7 +357,8 @@ DB::Status CoreWorkload::TransactionUpdate(DB &db) {
 }
 
 DB::Status CoreWorkload::TransactionInsert(DB &db) {
-  uint64_t key_num = transaction_insert_key_sequence_->Next();
+  // uint64_t key_num = transaction_insert_key_sequence_->Next();
+  uint64_t key_num = NextTransactionKeyNum();
   const std::string key = BuildKeyName(key_num);
   std::vector<DB::Field> values;
   BuildValues(values);

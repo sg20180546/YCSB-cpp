@@ -31,7 +31,7 @@ class UniformGenerator : public Generator<uint64_t> {
 };
 
 inline uint64_t UniformGenerator::Next() {
-  printf("UNIFORM\n");
+  // printf("UNIFORM\n");
   return last_int_ = dist_(generator_);
 }
 
