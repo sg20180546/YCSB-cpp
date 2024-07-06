@@ -17,10 +17,10 @@ for i in 1 2 3
 do
     for WORKLOAD_TYPE in zipfian latest uniform
     do  
-        for SCHEME in $BASELINE $ZEUFS
+        for SCHEME in $BASELINE
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LSE_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LME2_${i}.txt
                     OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline_cosmos.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
