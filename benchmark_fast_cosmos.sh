@@ -43,7 +43,7 @@ do
 
             while : 
                 do
-                sudo /home/micron/zone_reset_all 0 100
+                sudo /home/micron/zone_reset_all 0 20
                 sudo rm -rf /home/micron/log
                 sudo mkdir -p /home/micron/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme1n1/queue/scheduler
@@ -54,7 +54,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/micron/log/zenfsoptions.ini
 
-                sudo /home/micron/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
+                sudo /home/micron/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
                         rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then

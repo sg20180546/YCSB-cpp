@@ -54,7 +54,7 @@ do
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini
 
-                sudo /home/femu/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
+                sudo /home/femu/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
                         rocksdb/rocksdb.properties2 -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
