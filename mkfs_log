@@ -1,86 +1,12 @@
 ZbdlibBackend :: Open() log erase unit size 0
 ZonedBlockDevice::Open :: 0
-Zone block device nr zones: 2016 max active: 2016 (2014) max open: 2016(2014) 
+Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
 PARTIAL RESET DISABLED
-active resoruced 0
-active resoruced 1
-active resoruced 2
-active resoruced 3
-active resoruced 4
-active resoruced 5
-active resoruced 6
-active resoruced 7
-active resoruced 8
-active resoruced 9
-active resoruced 10
-active resoruced 11
-active resoruced 12
-active resoruced 13
-active resoruced 14
-active resoruced 15
-active resoruced 16
-active resoruced 17
-active resoruced 18
-active resoruced 19
-active resoruced 20
-active resoruced 21
-active resoruced 22
-active resoruced 23
-active resoruced 24
-active resoruced 25
-active resoruced 26
-active resoruced 27
-active resoruced 28
-active resoruced 29
-active resoruced 30
-active resoruced 31
-active resoruced 32
-active resoruced 33
-active resoruced 34
-active resoruced 35
-active resoruced 36
-active resoruced 37
-active resoruced 38
-active resoruced 39
-active resoruced 40
-active resoruced 41
-active resoruced 42
-active resoruced 43
-active resoruced 44
-active resoruced 45
-active resoruced 46
-active resoruced 47
-active resoruced 48
-active resoruced 49
-active resoruced 50
-active resoruced 51
-active resoruced 52
-active resoruced 53
-active resoruced 54
-active resoruced 55
-active resoruced 56
-active resoruced 57
-active resoruced 58
-active resoruced 59
-active resoruced 60
-active resoruced 61
-active resoruced 62
-active resoruced 63
-active resoruced 64
-active resoruced 65
-active resoruced 66
-active resoruced 67
-active resoruced 68
-active resoruced 69
-active resoruced 70
-active resoruced 71
-active resoruced 72
-active resoruced 73
 device free space : 81920
 zone sz 0
-zenfs ptr 0x55c173b15e50
+zenfs ptr 0x55d8e2d4ae50
 FAR STAT 0 :: ZC Triggered Count : 0
-zone size at ~ 128
+zone size at ~ 512
 ============================================================
 FAR STAT 1 :: WWP (MB) : 0, R_wp : 100
 FAR STAT 2 :: ZC IO Blocking time : 0, Compaction Refused : 0
@@ -130,88 +56,14 @@ Cumulative I/O Blocking 0
 
 ZbdlibBackend :: Open() log erase unit size 0
 ZonedBlockDevice::Open :: 0
-Zone block device nr zones: 2016 max active: 2016 (2014) max open: 2016(2014) 
+Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
 PARTIAL RESET DISABLED
-active resoruced 0
-active resoruced 1
-active resoruced 2
-active resoruced 3
-active resoruced 4
-active resoruced 5
-active resoruced 6
-active resoruced 7
-active resoruced 8
-active resoruced 9
-active resoruced 10
-active resoruced 11
-active resoruced 12
-active resoruced 13
-active resoruced 14
-active resoruced 15
-active resoruced 16
-active resoruced 17
-active resoruced 18
-active resoruced 19
-active resoruced 20
-active resoruced 21
-active resoruced 22
-active resoruced 23
-active resoruced 24
-active resoruced 25
-active resoruced 26
-active resoruced 27
-active resoruced 28
-active resoruced 29
-active resoruced 30
-active resoruced 31
-active resoruced 32
-active resoruced 33
-active resoruced 34
-active resoruced 35
-active resoruced 36
-active resoruced 37
-active resoruced 38
-active resoruced 39
-active resoruced 40
-active resoruced 41
-active resoruced 42
-active resoruced 43
-active resoruced 44
-active resoruced 45
-active resoruced 46
-active resoruced 47
-active resoruced 48
-active resoruced 49
-active resoruced 50
-active resoruced 51
-active resoruced 52
-active resoruced 53
-active resoruced 54
-active resoruced 55
-active resoruced 56
-active resoruced 57
-active resoruced 58
-active resoruced 59
-active resoruced 60
-active resoruced 61
-active resoruced 62
-active resoruced 63
-active resoruced 64
-active resoruced 65
-active resoruced 66
-active resoruced 67
-active resoruced 68
-active resoruced 69
-active resoruced 70
-active resoruced 71
-active resoruced 72
-active resoruced 73
 device free space : 81920
 zone sz 0
-zenfs ptr 0x55c173b15eb0
+zenfs ptr 0x55d8e2d4aeb0
 ZenFS file system created. Free space: 81920 MB
 FAR STAT 0 :: ZC Triggered Count : 0
-zone size at ~ 128
+zone size at ~ 512
 ============================================================
 FAR STAT 1 :: WWP (MB) : 0, R_wp : 100
 FAR STAT 2 :: ZC IO Blocking time : 0, Compaction Refused : 0
