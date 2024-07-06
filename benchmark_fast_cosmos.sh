@@ -20,10 +20,10 @@ do
         for SCHEME in $BASELINE
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LME2_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_LME2_${i}.txt
                     OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline_cosmos.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
                     OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_FAR_cosmos.ini
                 else  
                     echo "error"

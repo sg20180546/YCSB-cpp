@@ -43,7 +43,7 @@ do
 
             while : 
                 do
-                /home/femu/zone_reset_all 0 320
+                /home/femu/zone_reset_all 0 20
                 sudo rm -rf /home/femu/log
                 sudo mkdir -p /home/femu/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
