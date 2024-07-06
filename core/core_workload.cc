@@ -265,7 +265,12 @@ std::string CoreWorkload::NextFieldName() {
 }
 
 bool CoreWorkload::DoInsert(DB &db) {
-  const std::string key = BuildKeyName(insert_key_sequence_->Next());
+
+
+  // const std::string key = BuildKeyName(insert_key_sequence_->Next());
+  uint64_t key_num = NextTransactionKeyNum();
+  const std::string key = BuildKeyName(key_num);
+  
   std::vector<DB::Field> fields;
   BuildValues(fields);
   return db.Insert(table_name_, key, fields) == DB::kOK;
