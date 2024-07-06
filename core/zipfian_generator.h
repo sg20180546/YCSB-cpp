@@ -13,7 +13,7 @@
 #include <cmath>
 #include <cstdint>
 #include <mutex>
-
+#include <stdio.h>
 #include "generator.h"
 #include "utils/utils.h"
 
@@ -70,6 +70,7 @@ class ZipfianGenerator : public Generator<uint64_t> {
   }
 
   static double Zeta(uint64_t num, double theta) {
+    printf("ZIPFIAN\n");
     return Zeta(0, num, theta, 0);
   }
 

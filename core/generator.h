@@ -8,7 +8,7 @@
 
 #ifndef YCSB_C_GENERATOR_H_
 #define YCSB_C_GENERATOR_H_
-
+#include <stdio.h>
 #include <cstdint>
 
 namespace ycsbc {
