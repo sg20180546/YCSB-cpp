@@ -223,10 +223,11 @@ int main(const int argc, const char *argv[]) {
     std::cout << "Run operations(ops): " << sum << std::endl;
     std::cout << "Run throughput(ops/sec): " << sum / runtime << std::endl;
   }
-
-  for (int i = 0; i < num_threads; i++) {
-    delete dbs[i];
-  }
+  // sleep(10);
+  // std::this_thread::sleep_for(std::chrono::seconds(stoi(props.GetProperty("sleepafterload", "10"))));
+  // for (int i = 0; i < num_threads; i++) {
+  //   delete dbs[i];
+  // }
 }
 
 void ParseCommandLine(int argc, const char *argv[], ycsbc::utils::Properties &props) {
