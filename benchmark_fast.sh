@@ -57,17 +57,17 @@ do
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_LOG_${T}_${i}.txt
                         OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
                         sed -i "s/^  tuning_point=.*/  tuning_point=${T}/" $OPTIONS
-                        sed -i "s/^  reset_scheme=.*/  reset_scheme=9/" $OPTION_FILE
+                        sed -i "s/^  reset_scheme=.*/  reset_scheme=9/" $OPTION
                     elif [ $SCHEME -eq $ZEUFS_LINEAR ]; then
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_LINEAR_${T}_${i}.txt
                         OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
                         sed -i "s/^  tuning_point=.*/  tuning_point=${T}/" $OPTIONS
-                        sed -i "s/^  reset_scheme=.*/  reset_scheme=4/" $OPTION_FILE
+                        sed -i "s/^  reset_scheme=.*/  reset_scheme=4/" $OPTION
                     elif [ $SCHEME -eq $ZEUFS_EXP ]; then
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_EXP_${T}_${i}.txt
                         OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
                         sed -i "s/^  tuning_point=.*/  tuning_point=${T}/" $OPTIONS
-                        sed -i "s/^  reset_scheme=.*/  reset_scheme=3/" $OPTION_FILE
+                        sed -i "s/^  reset_scheme=.*/  reset_scheme=3/" $OPTION
                     else  
                         echo "error"
                     fi
