@@ -2,9 +2,10 @@ ZbdlibBackend :: Open() log erase unit size 0
 ZonedBlockDevice::Open :: 0
 Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
 PARTIAL RESET DISABLED
+active resoruced 0
 device free space : 81920
 zone sz 0
-zenfs ptr 0x55d8e2d4ae50
+zenfs ptr 0x5621901f8e50
 FAR STAT 0 :: ZC Triggered Count : 0
 zone size at ~ 512
 ============================================================
@@ -58,9 +59,10 @@ ZbdlibBackend :: Open() log erase unit size 0
 ZonedBlockDevice::Open :: 0
 Zone block device nr zones: 504 max active: 504 (502) max open: 504(502) 
 PARTIAL RESET DISABLED
+active resoruced 0
 device free space : 81920
 zone sz 0
-zenfs ptr 0x55d8e2d4aeb0
+zenfs ptr 0x5621901f8eb0
 ZenFS file system created. Free space: 81920 MB
 FAR STAT 0 :: ZC Triggered Count : 0
 zone size at ~ 512
