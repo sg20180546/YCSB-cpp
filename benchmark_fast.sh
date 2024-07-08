@@ -42,7 +42,7 @@ SCANWRITERANDOM="scanwriterandom"
 
 # echo "Options updated successfully."
 
-for T in 90 70 50
+for T in 130 110 90 70 50
 do
     for i in 1 2 3
     do

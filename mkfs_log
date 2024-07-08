@@ -5,7 +5,7 @@ PARTIAL RESET DISABLED
 active resoruced 0
 device free space : 81920
 zone sz 0
-zenfs ptr 0x5621901f8e50
+zenfs ptr 0x55fd7490ce50
 FAR STAT 0 :: ZC Triggered Count : 0
 zone size at ~ 512
 ============================================================
@@ -62,7 +62,7 @@ PARTIAL RESET DISABLED
 active resoruced 0
 device free space : 81920
 zone sz 0
-zenfs ptr 0x5621901f8eb0
+zenfs ptr 0x55fd7490ceb0
 ZenFS file system created. Free space: 81920 MB
 FAR STAT 0 :: ZC Triggered Count : 0
 zone size at ~ 512
