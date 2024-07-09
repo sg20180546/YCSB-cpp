@@ -46,7 +46,7 @@ for T in 130 110 90 70 50
 do
     for i in 1 2 3
     do
-        for WORKLOAD_TYPE in zipfian latest uniform
+        for WORKLOAD_TYPE in uniform zipfian latest
         do
             for SCHEME in $ZEUFS_EXP $ZEUFS_LINEAR $ZEUFS_LOG
             do
@@ -84,13 +84,14 @@ do
 
                 while : 
                     do
-                    /home/femu/zone_reset_all 0 20
+                    sudo /home/femu/zone_reset_all 0 20 > /home/femu/log/tmp
                     sudo rm -rf /home/femu/log
                     sudo mkdir -p /home/femu/log
                     echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
                     
                     
-                    sudo /home/femu/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log
+                    sudo /home/femu/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc \
+                      --zbd=/nvme0n1 --aux_path=/home/femu/log > /home/femu/tmp
 
                     echo ${RESULT_PATH}
                     sudo cp ${OPTIONS} /home/femu/log/zenfsoptions.ini

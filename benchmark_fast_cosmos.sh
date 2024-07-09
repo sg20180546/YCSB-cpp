@@ -13,9 +13,9 @@ CACHESIZE=4
 A="a"
 SCANWRITERANDOM="scanwriterandom"
 
-for i in 1 2 3
+for i in 3 2 1
 do
-    for WORKLOAD_TYPE in zipfian latest uniform
+    for WORKLOAD_TYPE in uniform zipfian latest
     do  
         for SCHEME in $BASELINE
         do
@@ -43,19 +43,19 @@ do
 
             while : 
                 do
-                sudo /home/micron/zone_reset_all 0 20
+                sudo /home/micron/zone_reset_all 0 20 /home/micron/log/tmp
                 sudo rm -rf /home/micron/log
                 sudo mkdir -p /home/micron/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
                 
                 
-                sudo /home/micron/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/micron/log > mkfs_log
+                sudo /home/micron/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc \
+                 --zbd=/nvme0n1 --aux_path=/home/micron/log > /home/micron/tmp
 
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/micron/log/zenfsoptions.ini
 
-                sudo /home/micron/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P \
-                        rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
+                sudo /home/micron/YCSB-cpp/ycsb -load -db rocksdb -P workloads/workload_${WORKLOAD_TYPE} -P rocksdb/rocksdb.properties -s > ${RESULT_DIR_PATH}/tmp
                 
                 if grep -q "samezone score" ${RESULT_DIR_PATH}/tmp; then
                     cat ${RESULT_DIR_PATH}/tmp > ${RESULT_PATH}
