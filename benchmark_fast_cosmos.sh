@@ -20,7 +20,7 @@ do
         for SCHEME in $BASELINE
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_LME2_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_LME4_${i}.txt
                     OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline_cosmos.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
@@ -46,11 +46,11 @@ do
                 sudo /home/micron/zone_reset_all 0 20 > /home/micron/tmp
                 sudo rm -rf /home/micron/log
                 sudo mkdir -p /home/micron/log
-                echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
+                echo "mq-deadline" | sudo tee /sys/block/nvme1n1/queue/scheduler
                 
                 
                 sudo /home/micron/CAZAandZACA/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc \
-                 --zbd=/nvme0n1 --aux_path=/home/micron/log > /home/micron/tmp2
+                 --zbd=/nvme1n1 --aux_path=/home/micron/log > /home/micron/tmp2
 
                 echo ${RESULT_PATH}
                 sudo cp ${OPTIONS} /home/micron/log/zenfsoptions.ini
