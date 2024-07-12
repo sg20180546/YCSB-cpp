@@ -15,7 +15,7 @@ SCANWRITERANDOM="scanwriterandom"
 
 for i in 1 2 3
 do
-    for WORKLOAD_TYPE in uniform zipfian latest
+    for WORKLOAD_TYPE in latest uniform zipfian 
     do  
         for SCHEME in $BASELINE
         do

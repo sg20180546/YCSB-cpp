@@ -42,7 +42,7 @@ SCANWRITERANDOM="scanwriterandom"
 
 # echo "Options updated successfully."
 
-for T in 90 70 50 130 110
+for T in 100
 do
     for i in 1 2 3
     do
@@ -51,8 +51,8 @@ do
             for SCHEME in $ZEUFS_EXP $ZEUFS_LINEAR $ZEUFS_LOG
             do
                     if [ $SCHEME -eq $BASELINE ]; then
-                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_LME4_${i}.txt
-                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline.ini 
+                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_SME4_${i}.txt
+                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline_small.ini 
                     elif [ $SCHEME -eq $ZEUFS_LOG ]; then
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_LOG_${T}_${i}.txt
                         OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
