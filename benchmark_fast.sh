@@ -48,7 +48,7 @@ do
     do
         for WORKLOAD_TYPE in uniform zipfian latest
         do
-            for SCHEME in $ZEUFS_EXP $ZEUFS_LINEAR $ZEUFS_LOG
+            for SCHEME in $BASELINE
             do
                     if [ $SCHEME -eq $BASELINE ]; then
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_SME4_${i}.txt
