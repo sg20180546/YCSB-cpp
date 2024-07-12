@@ -13,9 +13,10 @@ CACHESIZE=4
 A="a"
 SCANWRITERANDOM="scanwriterandom"
 
-for i in 2 1 3
+for i in 5
 do
-    for WORKLOAD_TYPE in latest uniform zipfian 
+    # for WORKLOAD_TYPE in latest uniform zipfian 
+    for WORKLOAD_TYPE in latest
     do  
         for SCHEME in $BASELINE
         do
