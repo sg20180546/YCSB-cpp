@@ -51,7 +51,7 @@ do
             for SCHEME in $BASELINE
             do
                     if [ $SCHEME -eq $BASELINE ]; then
-                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_SME2_${i}.txt
+                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_SME4_${i}.txt
                         OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline_small.ini 
                     elif [ $SCHEME -eq $ZEUFS_LOG ]; then
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_LOG_${T}_${i}.txt
