@@ -42,30 +42,30 @@ SCANWRITERANDOM="scanwriterandom"
 
 # echo "Options updated successfully."
 
-for T in 100
+for T in 130 110 90 70 50
 do
     for i in 1 2 3
     do
         for WORKLOAD_TYPE in uniform zipfian latest
         do
-            for SCHEME in $BASELINE
+            for SCHEME in $ZEUFS_EXP $ZEUFS_LINEAR $ZEUFS_LOG
             do
                     if [ $SCHEME -eq $BASELINE ]; then
                         RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_SSE_${i}.txt
                         OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_baseline_small.ini 
                     elif [ $SCHEME -eq $ZEUFS_LOG ]; then
-                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_LOG_${T}_${i}.txt
-                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
+                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_SLOG_${T}_${i}.txt
+                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR_small.ini
                         sed -i "s/^  tuning_point=.*/  tuning_point=${T}/" $OPTIONS
                         sed -i "s/^  reset_scheme=.*/  reset_scheme=3/" $OPTIONS
                     elif [ $SCHEME -eq $ZEUFS_LINEAR ]; then
-                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_LINEAR_${T}_${i}.txt
-                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
+                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_SLINEAR_${T}_${i}.txt
+                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR_small.ini
                         sed -i "s/^  tuning_point=.*/  tuning_point=${T}/" $OPTIONS
                         sed -i "s/^  reset_scheme=.*/  reset_scheme=4/" $OPTIONS
                     elif [ $SCHEME -eq $ZEUFS_EXP ]; then
-                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_EXP_${T}_${i}.txt
-                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR.ini
+                        RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_SEXP_${T}_${i}.txt
+                        OPTIONS=/home/femu/YCSB-cpp/rocksdb/FAST_FAR_small.ini
                         sed -i "s/^  tuning_point=.*/  tuning_point=${T}/" $OPTIONS
                         sed -i "s/^  reset_scheme=.*/  reset_scheme=9/" $OPTIONS
                     else  

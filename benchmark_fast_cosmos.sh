@@ -13,15 +13,15 @@ CACHESIZE=4
 A="a"
 SCANWRITERANDOM="scanwriterandom"
 
-for i in 2
+for i in 10 11 12
 do
-    # for WORKLOAD_TYPE in latest uniform zipfian 
-    for WORKLOAD_TYPE in latest
+    for WORKLOAD_TYPE in latest uniform zipfian 
+    # for WORKLOAD_TYPE in latest
     do  
         for SCHEME in $BASELINE
         do
                 if [ $SCHEME -eq $BASELINE ]; then
-                    RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_LSE_${i}.txt
+                    RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_LME4_${i}.txt
                     OPTIONS=/home/micron/YCSB-cpp/rocksdb/FAST_baseline_cosmos.ini 
                 elif [ $SCHEME -eq $ZEUFS ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/CAZA_${WORKLOAD_TYPE}_ZEUFS_${i}.txt
