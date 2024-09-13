@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/hdr_histogram_perf.dir/hdr_histogram_perf.c.o CMakeFiles/hdr_histogram_perf.dir/minunit.c.o -o hdr_histogram_perf  ../src/libhdr_histogram_static.a /usr/lib/x86_64-linux-gnu/libz.so -lm -lrt 

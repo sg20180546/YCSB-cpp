@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/hiccup.dir/hiccup.c.o -o hiccup  -Wl,-rpath,/home/micron/YCSB-cpp/build/HdrHistogram_c/src: ../src/libhdr_histogram.so.6.1.2 
