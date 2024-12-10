@@ -1,7 +1,7 @@
 
 
 BASELINE=0
-ZEUFS=1
+ZEUFS=2
 
 OPTIONS=/home/femu/YCSB-cpp/rocksdb/zenfsoptions.ini
 RESULT_DIR_PATH=/home/femu/FAST_testdata/YCSB
@@ -17,7 +17,7 @@ for i in 1 2 3
 do
     for WORKLOAD_TYPE in zipfian latest uniform
     do  
-        for SCHEME in $BASELINE
+        for SCHEME in $BASELINE $ZEUFS
         do
                 if [ $SCHEME -eq $BASELINE ]; then
                     RESULT_PATH=${RESULT_DIR_PATH}/LIZA_${WORKLOAD_TYPE}_LSE_${i}.txt
@@ -43,7 +43,7 @@ do
 
             while : 
                 do
-                /home/femu/zone_reset_all 0 25
+                /home/femu/zone_reset_all 0 80
                 sudo rm -rf /home/femu/log
                 sudo mkdir -p /home/femu/log
                 echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
