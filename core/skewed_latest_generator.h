@@ -35,6 +35,7 @@ class SkewedLatestGenerator : public Generator<uint64_t> {
 
 inline uint64_t SkewedLatestGenerator::Next() {
   uint64_t max = basis_.Last();
+  printf("SkewedLatestGenerator next\n");
   return last_ = max - zipfian_.Next(max);
 }
 

@@ -46,7 +46,9 @@ class ZipfianGenerator : public Generator<uint64_t> {
 
   uint64_t Next(uint64_t num_items);
 
-  uint64_t Next() { return Next(items_); }
+  uint64_t Next() { 
+    printf("ZipfianGenerator next\n");
+    return Next(items_); }
 
   uint64_t Last();
 
@@ -86,6 +88,7 @@ class ZipfianGenerator : public Generator<uint64_t> {
 
 inline uint64_t ZipfianGenerator::Next(uint64_t num) {
   assert(num >= 2 && num < kMaxNumItems);
+  printf("ZipfianGenerator next\n");
   if (num != count_for_zeta_) {
     // recompute zeta and eta
     std::lock_guard<std::mutex> lock(mutex_);
