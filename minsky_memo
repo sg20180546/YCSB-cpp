@@ -1,0 +1,10 @@
+                /home/femu/zone_reset_all 0 80
+                sudo rm -rf /home/femu/log
+                sudo mkdir -p /home/femu/log
+                echo "mq-deadline" | sudo tee /sys/block/nvme0n1/queue/scheduler
+                
+                
+                sudo /home/femu/EZC_mine/rocksdb/plugin/zenfs/util/zenfs mkfs --force --enable_gc   --zbd=/nvme0n1 --aux_path=/home/femu/log 
+
+                sudo cp /home/femu/YCSB-cpp/rocksdb/zlsm_motivation.ini /home/femu/log/zenfsoptions.ini
+		sudo /home/femu/YCSB-cpp/ycsb -run -db rocksdb -P workloads/workload_uniform -P rocksdb/rocksdb.properties  -s

@@ -15,7 +15,7 @@ SCANWRITERANDOM="scanwriterandom"
 
 for i in 1 2 3
 do
-    for WORKLOAD_TYPE in zipfian latest uniform
+    for WORKLOAD_TYPE in uniform
     do  
         for SCHEME in $BASELINE $ZEUFS
         do
@@ -73,5 +73,5 @@ done
 
 echo "all done"
 
-sudo /home/femu/access_testdata/sendresultmail
+# sudo /home/femu/access_testdata/sendresultmail
 
