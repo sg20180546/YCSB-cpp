@@ -48,6 +48,15 @@ class HdrHistogramMeasurements : public Measurements {
   void Report(Operation op, uint64_t latency) override;
   std::string GetStatusMsg() override;
   void Reset() override;
+
+  std::vector<uint64_t> GetCurrentCounts() const {
+    std::vector<uint64_t> counts(MAXOPTYPE, 0);
+    for (int i = 0; i < MAXOPTYPE; i++) {
+      counts[i] = histogram_[i]->total_count;
+    }
+    return counts;
+  }
+
  private:
   hdr_histogram *histogram_[MAXOPTYPE];
 };

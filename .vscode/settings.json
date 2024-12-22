@@ -65,6 +65,7 @@
         "bitset": "cpp",
         "codecvt": "cpp",
         "optional": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "hash_map": "cpp"
     }
 }

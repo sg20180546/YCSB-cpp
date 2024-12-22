@@ -9,8 +9,8 @@
 #recordcount=83886080
 # operationcount=2097152
 # 73400320
-recordcount=67108864
-operationcount=2097152
+recordcount=33554432
+operationcount=33554432
 workload=com.yahoo.ycsb.workloads.CoreWorkload
 
 readallfields=true

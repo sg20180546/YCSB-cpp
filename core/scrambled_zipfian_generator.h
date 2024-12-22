@@ -51,6 +51,7 @@ inline uint64_t ScrambledZipfianGenerator::Scramble(uint64_t value) const {
 }
 
 inline uint64_t ScrambledZipfianGenerator::Next() {
+  // printf("zipfina next\n");
   return Scramble(generator_.Next());
 }
 

@@ -89,6 +89,7 @@ std::string HdrHistogramMeasurements::GetStatusMsg() {
   msg_stream << std::fixed << " operations;";
   for (int i = 0; i < MAXOPTYPE; i++) {
     Operation op = static_cast<Operation>(i);
+    //return this jaewan, parameter op
     uint64_t cnt = histogram_[op]->total_count;
     if (cnt == 0)
       continue;

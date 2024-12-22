@@ -8,7 +8,7 @@
 
 #include <cstring>
 #include <ctime>
-
+#include <unistd.h>
 #include <string>
 #include <iostream>
 #include <vector>
@@ -32,8 +32,20 @@ void ParseCommandLine(int argc, const char *argv[], ycsbc::utils::Properties &pr
 
 void StatusThread(ycsbc::Measurements *measurements, ycsbc::utils::CountDownLatch *latch, int interval) {
   using namespace std::chrono;
+
+  auto *hdr = dynamic_cast<ycsbc::HdrHistogramMeasurements*>(measurements);
+
   time_point<system_clock> start = system_clock::now();
+  time_point<system_clock> prev_check_time = start;
+
+  static const int CHECK_PERIOD = 200;
+  std::vector<uint64_t> prev_counts(ycsbc::MAXOPTYPE, 0);
+  if (hdr != nullptr) {
+    prev_counts = hdr->GetCurrentCounts();
+  }
+
   bool done = false;
+  int* exitnullptr=nullptr;
   while (1) {
     time_point<system_clock> now = system_clock::now();
     std::time_t now_c = system_clock::to_time_t(now);
@@ -43,6 +55,41 @@ void StatusThread(ycsbc::Measurements *measurements, ycsbc::utils::CountDownLatc
               << static_cast<long long>(elapsed_time.count()) << " sec: ";
 
     std::cout << measurements->GetStatusMsg() << std::endl;
+    
+    if (hdr != nullptr) {
+      auto current_counts = hdr->GetCurrentCounts();
+      // std::cout << "Current operation counts: ";
+      // for (int i = 0; i < ycsbc::MAXOPTYPE; i++) {
+      //   ycsbc::Operation op = static_cast<ycsbc::Operation>(i);
+      //   std::cout << ycsbc::kOperationString[op] << ":" << current_counts[i] << "\n";
+      // }
+
+      duration<double> since_last_check = now - prev_check_time;
+      if (since_last_check.count() >= CHECK_PERIOD) {
+        auto current_counts_temp = hdr->GetCurrentCounts();
+        bool changed = false;
+        for (int i = 0; i < ycsbc::MAXOPTYPE; i++) {
+          if (current_counts_temp[i] != prev_counts[i]) {
+            changed = true;
+            break;
+          }
+        }
+
+        if (!changed) {
+          std::cout << "BLOCKING TIME(ms)\n";
+          std::cout << "BLOCKING TIME(ms)\n";
+          std::cout << "BLOCKING TIME(ms)\n";
+          std::cout << "BLOCKING TIME(ms)\n";
+          std::cout << "BLOCKING TIME(ms)\n";
+          done=true;
+          sleep(1);
+          (*exitnullptr)=1;
+          // exit(0);
+        }
+        prev_counts = current_counts_temp;
+        prev_check_time = now;
+      }
+    }
 
     if (done) {
       break;
@@ -50,6 +97,7 @@ void StatusThread(ycsbc::Measurements *measurements, ycsbc::utils::CountDownLatc
     done = latch->AwaitFor(interval);
   };
 }
+
 
 void RateLimitThread(std::string rate_file, std::vector<ycsbc::utils::RateLimiter *> rate_limiters,
                      ycsbc::utils::CountDownLatch *latch) {
